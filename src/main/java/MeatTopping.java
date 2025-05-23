@@ -10,7 +10,17 @@ public class MeatTopping extends Topping {
             "chicken",
             "bacon");
 
-    public MeatTopping(String name, double price, boolean extra) {
-        super(name, 1, extra);
+    public MeatTopping(String name, BreadSize size, boolean extra) {
+        super(name, getPrice(size,extra), extra);
     }
+    private static double getPrice(BreadSize size, boolean extra) {
+        return switch (size) {
+            case FOUR_INCH ->  extra ? 1.50 : 1.00;
+            case EIGHT_INCH ->  extra ? 3.00 : 2.00;
+            case TWELVE_INCH ->  extra ? 3.50 : 3.00;
+        };
+    }
+
+
+
 }

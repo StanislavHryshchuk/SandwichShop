@@ -4,11 +4,20 @@ public class Sandwich {
     private String breadType;
     private BreadSize breadSize;
     private List<Topping> toppings;
+    private boolean toasted;
 
     public Sandwich(String breadType, BreadSize breadSize, List<Topping> toppings) {
         this.breadType = breadType;
         this.breadSize = breadSize;
         this.toppings = toppings;
+    }
+
+    public boolean isToasted() {
+        return toasted;
+    }
+
+    public void setToasted(boolean toasted) {
+        this.toasted = toasted;
     }
 
     public String getBreadType() {
