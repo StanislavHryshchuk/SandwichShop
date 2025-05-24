@@ -13,7 +13,7 @@ public class RegularTopping extends Topping{
             "guacamole",
             "mushrooms");
 
-    public RegularTopping(String name, double price, boolean extra) {
-        super(name, 0.0, extra);
+    public RegularTopping(String name) {
+        super(name, 0.0, false);
     }
 }

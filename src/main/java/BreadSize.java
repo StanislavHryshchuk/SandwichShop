@@ -1,21 +1,22 @@
 public enum BreadSize {
-    FOUR_INCH(5.50, 1),
-    EIGHT_INCH(7.00, 2),
-    TWELVE_INCH(8.50, 3);
+    FOUR_INCH(5.50, "4'"),
+    EIGHT_INCH(7.00, "8'"),
+    TWELVE_INCH(8.50, "12'");
 
     private final double price;
-    private final int sizeCorelation;
-    BreadSize(double price, int sizeCorelation) {
+    private final String label;
+
+    BreadSize(double price, String label) {
         this.price = price;
-        this.sizeCorelation = sizeCorelation;
+        this.label = label;
     }
 
     public double getPrice(){
         return price;
     }
 
-    public int getSizeCorelation() {
-        return sizeCorelation;
+    public String getLabel() {
+        return label;
     }
 
     public static BreadSize fromInput(int input) {
