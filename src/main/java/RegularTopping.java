@@ -6,7 +6,7 @@ public class RegularTopping extends Topping{
             "lettuce",
             "peppers",
             "onions",
-            " tomatoes",
+            "tomatoes",
             "jalapeños",
             "cucumbers",
             "pickles",

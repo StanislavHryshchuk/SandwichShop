@@ -1,6 +1,10 @@
+import java.util.List;
+
 public class Chips {
     private String name;
     private double price = 1.50;
+
+
 
     public Chips(String name) {
         this.name = name;

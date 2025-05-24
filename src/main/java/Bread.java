@@ -2,34 +2,33 @@ import java.util.List;
 
 public class Bread {
     private String name;
-    private String size;
-    private double price;
+    private BreadSize size;
+
     public static List<String> breadNames = List.of(
             "Wheat",
             "White",
             "Rye",
             "Wrap");
 
-    public Bread(String name, String size, double price) {
+    public Bread(String name,BreadSize size) {
         this.name = name;
         this.size = size;
-        this.price = price;
     }
 
     public String getName() {
         return name;
     }
 
-    public void setName(String name) {
-        this.name = name;
-    }
-
     public double getPrice() {
-        return price;
+        return size.getPrice();
     }
 
-    public void setPrice(double price) {
-        this.price = price;
+    public BreadSize getSize() {
+        return size;
     }
 
+    @Override
+    public String toString() {
+        return String.format("Bread: %s %s Price: $%.2f", name, size.getLabel(), size.getPrice());
+    }
 }
