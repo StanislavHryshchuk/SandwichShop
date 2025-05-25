@@ -24,4 +24,8 @@ public class Sauce {
         this.name = name;
     }
 
+    @Override
+    public String toString() {
+        return name;
+    }
 }

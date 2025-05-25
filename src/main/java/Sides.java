@@ -9,4 +9,9 @@ public class Sides {
     public Sides(String name) {
         this.name = name;
     }
+
+    @Override
+    public String toString() {
+        return name;
+    }
 }

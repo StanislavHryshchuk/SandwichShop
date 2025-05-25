@@ -9,64 +9,97 @@ public class Order {
     private String name = LocalDateTime.now().toString();
     private List<Sandwich> sandwiches;
     private List<Drink> drinks;
-    private List<Sauce> sauces;
+    private List<Chips> chips;
 
-    public Order(String name, List<Sandwich> sandwiches, List<Drink> drinks, List<Sauce> sauces) {
+    public Order(String name, List<Sandwich> sandwiches, List<Drink> drinks, List<Chips> chips) {
         this.name = name;
         this.sandwiches = sandwiches;
         this.drinks = drinks;
-        this.sauces = sauces;
+        this.chips = chips;
     }
 
-    public static Order createOrder(){
-
+    public static Order createOrder() {
         List<Sandwich> sandwichList = new ArrayList<>();
         List<Drink> drinkList = new ArrayList<>();
         List<Chips> chipsList = new ArrayList<>();
 
-
-        System.out.println("""
-            What you would like to add to your Order:
-            1. Sandwich
-            2. Drink
-            3. Chips
+        while (true) {
+            System.out.println("""
+            What would you like to add to your Order:
+            1. Sandwich.
+            2. Drink.
+            3. Chips.
             4. Checkout""");
-        try {
-            int userChoice = Integer.parseInt(scanner.nextLine().trim());
 
-            switch (userChoice) {
-                case 1:
-                    System.out.println("How many Sandwiches you would like to order?");
-                    int userSandwichQuantity = Integer.parseInt(scanner.nextLine().trim());
+            try {
+                int userChoice = Integer.parseInt(scanner.nextLine().trim());
 
-                    for (int i = 1; i <= userSandwichQuantity; i++) {
-                        System.out.println("Creating Sandwich #" + i);
-                        Sandwich sandwich = new Sandwich().createSandwich();
-                        sandwichList.add(sandwich);
+                switch (userChoice) {
+                    case 1 -> {
+                        System.out.println("How many Sandwiches would you like to order?");
+                        int count = Integer.parseInt(scanner.nextLine().trim());
+
+                        for (int i = 1; i <= count; i++) {
+                            System.out.println("Creating Sandwich #" + i);
+                            Sandwich sandwich = new Sandwich().createSandwich();
+                            sandwichList.add(sandwich);
+                        }
                     }
-                    break;
-                case 2:
-                    System.out.println("How many Drinks you would like to order?");
-                    int userDrinkQuantity = Integer.parseInt(scanner.nextLine().trim());
+                    case 2 -> {
+                        System.out.println("How many Drinks would you like to order?");
+                        int count = Integer.parseInt(scanner.nextLine().trim());
 
-                    for (int i = 1; i <= userDrinkQuantity; i++) {
-                        Drink.drinks.forEach(System.out::println);
-                        System.out.println("Drink #" + i);
-
-                        Drink drink = new Drink().createDrink();
-                        drinkList.add(drink);
+                        for (int i = 1; i <= count; i++) {
+                            System.out.println("Drink #" + i);
+                            Drink drink = new Drink().createDrink();
+                            drinkList.add(drink);
+                        }
                     }
-                    break;
-                case 3:
-                    System.out.println("Would you like to add Chips?");
-                    int userChipsQuantity = Integer.parseInt(scanner.nextLine().trim());
+                    case 3 -> {
+                        System.out.println("How many Chips would you like to order?");
+                        int count = Integer.parseInt(scanner.nextLine().trim());
 
-                    break;
+                        for (int i = 1; i <= count; i++) {
+                            System.out.println("Chips #" + i);
+                            Chips chips = new Chips().createChips();
+                            chipsList.add(chips);
+                        }
+                    }
+                    case 4 -> {
+                        System.out.println("Can I have a name for the order?");
+                        String clientName = scanner.nextLine().trim().replaceAll("\\s{2,}", " ");
+                        return new Order(clientName, sandwichList, drinkList, chipsList);
+                    }
+                    default -> System.out.println("Invalid option. Please try again.");
+                }
+            } catch (NumberFormatException e) {
+                System.out.println("Invalid input. Please enter a number.");
             }
-
-        } catch (NumberFormatException e) {
-            System.out.println(e.getMessage());
         }
-        return new Order()
     }
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append("\n=== Order Summary ===\n");
+        sb.append("Order Name: ").append(name).append("\n");
+
+        if (sandwiches != null && !sandwiches.isEmpty()) {
+            sb.append("\nSandwiches:\n");
+            int count = 1;
+            for (Sandwich s : sandwiches) {
+                sb.append(" ").append(count++).append(".\n");
+                sb.append(s).append("\n");
+            }
+        }
+
+        if (drinks != null && !drinks.isEmpty()) {
+            sb.append("\nDrinks:\n");
+            for (Drink d : drinks) {
+                sb.append("  • ").append(d).append("\n");
+            }
+        }
+        sb.append("\nThank you for your order!\n");
+        return sb.toString();
+    }
+
 }

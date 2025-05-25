@@ -17,7 +17,7 @@ public class HomeScreen {
 
             switch (userChoice) {
                 case 1:
-                    Order.createOrder();
+                    System.out.println(Order.createOrder());
                     break;
                 case 2:
                     break;

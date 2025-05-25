@@ -35,4 +35,17 @@ public abstract class Topping {
     public void setName(String name) {
         this.name = name;
     }
+
+    @Override
+    public String toString() {
+        if(this instanceof RegularTopping){
+            return name;
+        }
+        if (extra) {
+            return String.format("%s (extra) - $%.2f", name, price);
+        } else {
+            return String.format("%s - $%.2f", name, price);
+        }
+    }
+
 }

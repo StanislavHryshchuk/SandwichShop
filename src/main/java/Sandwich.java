@@ -57,18 +57,15 @@ public class Sandwich {
     public Sandwich createSandwich () {
 
         Bread bread = breadPrompt();
+        toppingPrompt(bread.getSize());
+        saucesPrompt();
+        sidesPrompt();
 
         System.out.println("Would you like it toasted?");
 
         boolean toasted = scanner.nextLine().trim().equalsIgnoreCase("yes");
 
-        toppingPrompt(bread.getSize());
-        saucesPrompt();
-        sidesPrompt();
-
-
         return new Sandwich(bread.getName(),bread.getSize(),this.toppings,this.sauces,this.sides,toasted);
-
     }
 
     public Bread breadPrompt() {
@@ -80,12 +77,10 @@ public class Sandwich {
         System.out.println("What type of bread you would like? (White, Wheat, Rye, Wrap)");
         String userBreadName = scanner.nextLine().trim().replaceAll("\\s{2,}", " ");
 
-        System.out.println("You chose: " + size + " " + userBreadName + "\nPrice: $" + size.getPrice());
+        System.out.println("You chose: " + userBreadName + " " + size.getLabel() +  "\nPrice: $" + size.getPrice());
 
-        Bread bread = new Bread(userBreadName,size);
 
-        toppingPrompt(size);
-        return bread;
+        return new Bread(userBreadName,size);
     }
 
     public void toppingPrompt(BreadSize size) {
@@ -97,17 +92,27 @@ public class Sandwich {
 
         while (selectionProcess) {
 
-            System.out.println("What topping you would like to add first:\n1. Meat Toppings.\n2. Cheese Toppings.\n3. Regular Toppings.\n4. Select Sauce.\n5. Back");
+            System.out.println("""
+                    What topping you would like to add first:
+                    1. Meat Toppings.
+                    2. Cheese Toppings.
+                    3. Regular Toppings.
+                    4. Back""");
 
-            int userToppingSelect = Integer.parseInt(scanner.nextLine().trim());
-
-            switch (userToppingSelect) {
-                case 1 -> meatTopping(toppings,size);
-                case 2 -> cheeseTopping(toppings,size);
-                case 3 -> regularTopping(toppings);
-                case 4 -> saucesPrompt();
-                case 5 -> selectionProcess = false;
-                default -> System.out.println("Wrong input please try again");
+            try {
+                int userToppingSelect = Integer.parseInt(scanner.nextLine().trim());
+                switch (userToppingSelect) {
+                    case 1 -> meatTopping(toppings, size);
+                    case 2 -> cheeseTopping(toppings, size);
+                    case 3 -> regularTopping(toppings);
+                    case 4 -> {
+                        System.out.println("Done selecting ");
+                        selectionProcess = false;
+                    }
+                    default -> System.out.println("Wrong input please try again");
+                }
+            }catch (NumberFormatException e) {
+                System.out.println("Invalid input. Please enter a number.");
             }
         }
     }
@@ -174,7 +179,7 @@ public class Sandwich {
                 Topping regularTopping = new RegularTopping(userRegularTopping);
                 this.toppings.add(regularTopping);
 
-                System.out.printf("Added: %s", userRegularTopping);
+                System.out.printf("Added: %s\n", userRegularTopping);
             }
         }
     }
@@ -194,12 +199,15 @@ public class Sandwich {
             if(Sauce.sauces.contains(userSauce)){
                 Sauce sauce = new Sauce(userSauce);
                 this.sauces.add(sauce);
-                System.out.printf("Added: %s", userSauce);
+                System.out.printf("Added: %s\n", userSauce);
             }
         }
     }
 
     public void sidesPrompt(){
+
+        this.sides = new ArrayList<>();
+
         while (true) {
             System.out.println("Please select a Sides (type 'DONE' to go back):");
             Sides.sides.forEach(System.out::println);
@@ -211,25 +219,42 @@ public class Sandwich {
             if(Sides.sides.contains(userSide)){
                 Sides side = new Sides(userSide);
                 this.sides.add(side);
-                System.out.printf("Added: %s", userSide);
+                System.out.printf("Added: %s\n", userSide);
             }
         }
     }
 
     @Override
     public String toString() {
+        StringBuilder toppingList = new StringBuilder("Toppings:\n");
+        for (Topping t : toppings) {
+            if (t instanceof RegularTopping) {
+                toppingList.append("  ").append(t.getName()).append("\n");
+            } else {
+                toppingList.append("  ")
+                        .append(t.isExtra() ? "extra " : "")
+                        .append(t.getName())
+                        .append(" - $")
+                        .append(String.format("%.2f", t.getPrice()))
+                        .append("\n");
+            }
+        }
         return """
         --- Sandwich Summary ---
         Bread: %s (%s) %s
-        Toppings: %s
+        %s
         Sauces: %s
+        Sides: %s
         """.formatted(
                 breadName,
                 breadSize.getLabel(),
                 toasted ? "Toasted" : "Not Toasted",
-                toppings,
-                sauces
+                toppingList.toString(),
+                sauces,
+                sides
         );
     }
+
+
 
 }

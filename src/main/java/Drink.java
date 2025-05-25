@@ -68,6 +68,6 @@ public class Drink {
     @Override
     public String toString() {
         return String.format("Drink: %s (%s)" +
-                "\n\tP: %.2f", name,size,price)  ;
+                "\n\tP: %.2f", name,size,price);
     }
 }
