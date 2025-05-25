@@ -10,13 +10,14 @@ public class Order {
     private List<Sandwich> sandwiches;
     private List<Drink> drinks;
     private List<Chips> chips;
-    private double
+    private double orderPrice;
 
     public Order(String name, List<Sandwich> sandwiches, List<Drink> drinks, List<Chips> chips) {
         this.name = name;
         this.sandwiches = sandwiches;
         this.drinks = drinks;
         this.chips = chips;
+        this.orderPrice = getPrice();
     }
 
     public static Order createOrder() {
@@ -79,7 +80,26 @@ public class Order {
         }
     }
 
+    public double getPrice(){
+        double totalCost = 0.0;
 
+        if(sandwiches != null){
+            for(Sandwich sandwich : sandwiches){
+                totalCost += sandwich.getPrice();
+            }
+        }
+        if (drinks != null){
+            for(Drink drink : drinks){
+                totalCost += drink.getPrice();
+            }
+        }
+        if (chips != null){
+            for(Chips c: chips){
+                totalCost += c.getPrice();
+            }
+        }
+        return totalCost;
+    }
 
     @Override
     public String toString() {
@@ -88,28 +108,27 @@ public class Order {
         sb.append("Order for: ").append(name);
 
         if (sandwiches != null && !sandwiches.isEmpty()) {
-            sb.append("\nSandwiches:\n");
-            int count = 1;
+            sb.append("\t\nSandwich:\n");
             for (Sandwich s : sandwiches) {
-                sb.append(count++).append(".\n");
                 sb.append(s).append("\n");
             }
         }
-
         if (drinks != null && !drinks.isEmpty()) {
             sb.append("Drinks:\n");
             for (Drink d : drinks) {
-                sb.append(d).append("\n");
+                sb.append("\t").append(d).append("\n");
             }
         }
-        if (drinks != null && !drinks.isEmpty()){
+        if (chips != null && !chips.isEmpty()){
             sb.append(("Chips:\n"));
             for (Chips c : chips){
-                sb.append(c).append("\n");
+                sb.append("\t").append(c).append("\n");
             }
         }
+        sb.append("===================");
+        sb.append(String.format("Total order cost: $%.2f", getPrice()));
+
         sb.append("\nThank you for your order!\n");
         return sb.toString();
     }
-
 }

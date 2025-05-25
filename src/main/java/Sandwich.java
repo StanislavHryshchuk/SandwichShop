@@ -24,7 +24,6 @@ public class Sandwich {
         this.price = getPrice();
     }
 
-
     public boolean isToasted() {
         return toasted;
     }
@@ -87,7 +86,7 @@ public class Sandwich {
 
     public void toppingPrompt(BreadSize size) {
 
-        //Topping prompt
+        //Topping Prompts
         this.toppings = new ArrayList<>();
 
         boolean selectionProcess = true;
@@ -100,13 +99,12 @@ public class Sandwich {
                     2. Cheese Toppings.
                     3. Regular Toppings.
                     4. Back""");
-
             try {
                 int userToppingSelect = Integer.parseInt(scanner.nextLine().trim());
                 switch (userToppingSelect) {
-                    case 1 -> meatTopping(toppings, size);
-                    case 2 -> cheeseTopping(toppings, size);
-                    case 3 -> regularTopping(toppings);
+                    case 1 -> meatTopping(size);
+                    case 2 -> cheeseTopping(size);
+                    case 3 -> regularTopping();
                     case 4 -> {
                         System.out.println("Done selecting ");
                         selectionProcess = false;
@@ -119,7 +117,7 @@ public class Sandwich {
         }
     }
 
-    public void meatTopping(List<Topping> toppings, BreadSize size) {
+    public void meatTopping(BreadSize size) {
         while (true) {
 
             System.out.println("Please select a meat topping (type 'DONE' to go back):");
@@ -146,7 +144,7 @@ public class Sandwich {
         }
     }
 
-    public void cheeseTopping (List<Topping> toppings, BreadSize size){
+    public void cheeseTopping (BreadSize size){
         while (true) {
             System.out.println("Please select a Cheese topping (type 'DONE' to go back):");
             CheeseTopping.namesOfCheese.forEach(System.out::println);
@@ -169,7 +167,7 @@ public class Sandwich {
         }
     }
 
-    public void regularTopping(List<Topping> toppings){
+    public void regularTopping(){
 
         while (true) {
             System.out.println("Please select a Regular topping (type 'DONE' to go back):");
@@ -259,11 +257,9 @@ public class Sandwich {
                     .append("\n");
             }
         }
-        return """
-        --- Sandwich Summary ---
+        return """        
         Bread:
-        %s (%s) %s
-            Price: $%.2f
+        %s (%s) %s - $%.2f
         %s
         Sauces: %s
         Sides: %s
@@ -277,7 +273,4 @@ public class Sandwich {
                 sides.toString().replaceAll("[\\[\\]]", "")
         );
     }
-
-
-
 }

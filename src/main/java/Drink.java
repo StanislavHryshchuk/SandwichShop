@@ -20,7 +20,7 @@ public class Drink {
     public Drink(String name, String size) {
         this.name = name;
         this.size = size;
-        this.price = getPrice(size);
+        this.price = getPrice();
     }
 
     public String getName() {
@@ -31,11 +31,11 @@ public class Drink {
         this.name = name;
     }
 
-    public double getPrice(String size) {
-        if (size.equalsIgnoreCase("Large")){
-            return this.price = 3.00;
-        } else if (size.equalsIgnoreCase("Medium")) {
-            return this.price = 2.5;
+    public double getPrice() {
+        if (size.equalsIgnoreCase("L")){
+            return 3.00;
+        } else if (size.equalsIgnoreCase("M")) {
+            return 2.5;
         } else return 2.0;
 
     }

@@ -17,6 +17,22 @@ public class Chips {
         this.price = 1.50;
     }
 
+    public double getPrice() {
+        return price;
+    }
+
+    public void setPrice(double price) {
+        this.price = price;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
     public Chips createChips(){
         while (true) {
             System.out.println("Available chips: ");
