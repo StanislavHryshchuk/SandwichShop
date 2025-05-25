@@ -4,8 +4,10 @@ public class Chips {
     private String name;
     private double price;
     public static List<String> chips = List.of(
-            "Pringles","Lays",
-            "Cheetos","Doritos");
+            "Pringles",
+            "Lays",
+            "Cheetos",
+            "Doritos");
 
 
     public Chips(){};

@@ -9,8 +9,11 @@ public class Drink {
     private double price;
     private String size;
     public static List<String> drinks = List.of(
-            "Cola","Pepsi","Dr.Pepper",
-            "Fanta","Juice");
+            "Cola",
+            "Pepsi",
+            "Dr.Pepper",
+            "Fanta",
+            "Juice");
 
     public Drink(){};
 

@@ -10,6 +10,7 @@ public class Order {
     private List<Sandwich> sandwiches;
     private List<Drink> drinks;
     private List<Chips> chips;
+    private double
 
     public Order(String name, List<Sandwich> sandwiches, List<Drink> drinks, List<Chips> chips) {
         this.name = name;
@@ -77,6 +78,7 @@ public class Order {
             }
         }
     }
+
 
 
     @Override

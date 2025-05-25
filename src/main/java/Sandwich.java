@@ -10,6 +10,9 @@ public class Sandwich {
     private List<Sauce> sauces;
     private List<Sides> sides;
     private boolean toasted;
+    private double price;
+
+    public Sandwich(){};
 
     public Sandwich(String breadName, BreadSize breadSize, List<Topping> toppings, List<Sauce> sauces, List<Sides> sides, boolean toasted) {
         this.breadName = breadName;
@@ -18,8 +21,9 @@ public class Sandwich {
         this.sides = sides;
         this.toasted = toasted;
         this.sauces = sauces;
+        this.price = getPrice();
     }
-    public Sandwich(){};
+
 
     public boolean isToasted() {
         return toasted;
@@ -53,7 +57,6 @@ public class Sandwich {
         this.toppings = toppings;
     }
 
-
     public Sandwich createSandwich () {
 
         Bread bread = breadPrompt();
@@ -78,7 +81,6 @@ public class Sandwich {
         String userBreadName = scanner.nextLine().trim().replaceAll("\\s{2,}", " ");
 
         System.out.println("You chose: " + userBreadName + " " + size.getLabel() +  "\nPrice: $" + size.getPrice());
-
 
         return new Bread(userBreadName,size);
     }
@@ -228,7 +230,17 @@ public class Sandwich {
         }
     }
 
+    public double getPrice(){
+        double sandwichCost = 0.0;
+        sandwichCost += breadSize.getPrice();
 
+        if(toppings != null){
+            for (Topping topping : toppings){
+                sandwichCost += topping.getPrice();
+            }
+        }
+        return sandwichCost;
+    }
 
     @Override
     public String toString() {
