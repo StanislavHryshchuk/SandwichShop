@@ -127,7 +127,7 @@ public class Order {
                 sb.append("\t").append(c).append("\n");
             }
         }
-        sb.append("===================");
+        sb.append("===================\n");
         sb.append(String.format("Total order cost: $%.2f", getPrice()));
 
         sb.append("\nThank you for your order!\n");

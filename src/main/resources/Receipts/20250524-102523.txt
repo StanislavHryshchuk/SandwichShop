@@ -1,0 +1,21 @@
+
+=== Order Summary ===
+Order for: Stan	
+Sandwich:
+Bread:
+Rye (4') Toasted - $5.50
+Toppings:
+extra ham - $1.50
+extra bacon - $1.50
+swiss - $0.75
+onions
+
+Sauces: mayo
+Sides: 
+
+Drinks:
+	Cola (M) - $2.50
+Chips:
+	Lays - $1.50
+===================Total order cost: $13.25
+Thank you for your order!
