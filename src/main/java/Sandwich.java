@@ -76,7 +76,8 @@ public class Sandwich {
         int userBreadSize = Integer.parseInt(scanner.nextLine().trim());
         BreadSize size = BreadSize.fromInput(userBreadSize);
 
-        System.out.println("What type of bread you would like? (White, Wheat, Rye, Wrap)");
+        System.out.println("What type of bread you would like?");
+        Bread.breadNames.forEach(System.out::println);
         String userBreadName = scanner.nextLine().trim().replaceAll("\\s{2,}", " ");
 
         System.out.println("You chose: " + userBreadName + " " + size.getLabel() +  "\nPrice: $" + size.getPrice());
@@ -106,7 +107,7 @@ public class Sandwich {
                     case 2 -> cheeseTopping(size);
                     case 3 -> regularTopping();
                     case 4 -> {
-                        System.out.println("Done selecting ");
+                        System.out.println("Done selecting Toppings");
                         selectionProcess = false;
                     }
                     default -> System.out.println("Wrong input please try again");
@@ -247,13 +248,13 @@ public class Sandwich {
 
         for (Topping topping : toppings) {
             if (topping instanceof RegularTopping) {
-                toppingList.append(topping.getName()).append("\n");
+                toppingList.append("\t").append(topping.getName()).append("\n");
             } else {
                 toppingList
                     .append(topping.isExtra() ? "extra " : "")
                     .append(topping.getName())
                     .append(" - $")
-                    .append(String.format("%.2f", topping.getPrice()))
+                    .append(String.format("\t%.2f", topping.getPrice()))
                     .append("\n");
             }
         }

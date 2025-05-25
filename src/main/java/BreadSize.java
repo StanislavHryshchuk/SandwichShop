@@ -27,6 +27,4 @@ public enum BreadSize {
             default -> throw new IllegalArgumentException("Invalid bread size.");
         };
     }
-
-
 }

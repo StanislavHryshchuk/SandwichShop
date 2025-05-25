@@ -26,14 +26,15 @@ public class Order {
         List<Sandwich> sandwichList = new ArrayList<>();
         List<Drink> drinkList = new ArrayList<>();
         List<Chips> chipsList = new ArrayList<>();
-
-        while (true) {
+        boolean running = true;
+        while (running) {
             System.out.println("""
-            What would you like to add to your Order:
-            1. Sandwich.
-            2. Drink.
-            3. Chips.
-            4. Checkout""");
+                    What would you like to add to your Order:
+                    1. Sandwich.
+                    2. Drink.
+                    3. Chips.
+                    4. Checkout
+                    0. Cancel Order""");
 
             try {
                 int userChoice = Integer.parseInt(scanner.nextLine().trim());
@@ -72,7 +73,20 @@ public class Order {
                     case 4 -> {
                         System.out.println("Can I have a name for the order?");
                         String clientName = scanner.nextLine().trim().replaceAll("\\s{2,}", " ");
-                        return new Order(clientName, sandwichList, drinkList, chipsList);
+
+                        Order order = new Order(clientName, sandwichList, drinkList, chipsList);
+
+                        System.out.println("Please verify your Order");
+                        boolean userVerification = scanner.nextLine().trim().equalsIgnoreCase("yes");
+                        if (userVerification){
+                            return order;
+                        } else {
+                            running = false;
+                        }
+                    }
+                    case 0 -> {
+                        running = false;
+
                     }
                     default -> System.out.println("Invalid option. Please try again.");
                 }
@@ -80,6 +94,7 @@ public class Order {
                 System.out.println("Invalid input. Please enter a number.");
             }
         }
+        return null;
     }
 
     public double getPrice(){
@@ -106,7 +121,7 @@ public class Order {
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("\n=== Order Summary ===\n");
+        sb.append("=== Order Summary ===\n");
         sb.append("Order for: ").append(name);
 
         if (sandwiches != null && !sandwiches.isEmpty()) {

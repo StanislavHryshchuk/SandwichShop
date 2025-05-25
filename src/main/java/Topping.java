@@ -4,7 +4,6 @@ public abstract class Topping {
     private boolean extra;
     private String name;
 
-
     public Topping(String name, double price, boolean extra) {
         this.name = name;
         this.price = price;
@@ -47,5 +46,4 @@ public abstract class Topping {
             return String.format("%s - $%.2f", name, price);
         }
     }
-
 }

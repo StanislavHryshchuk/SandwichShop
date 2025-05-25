@@ -21,7 +21,4 @@ public class MeatTopping extends Topping {
             case TWELVE_INCH ->  extra ? 3.50 : 3.00;
         };
     }
-
-
-
 }
