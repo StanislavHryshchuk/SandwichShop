@@ -29,6 +29,6 @@ public class Bread {
 
     @Override
     public String toString() {
-        return String.format("Bread: %s %s Price: $%.2f", name, size.getLabel(), size.getPrice());
+        return String.format("Bread: %s %s \nPrice: $%.2f", name, size.getLabel(), size.getPrice());
     }
 }

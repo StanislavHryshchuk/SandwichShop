@@ -2,12 +2,8 @@ import java.util.List;
 
 public class Sauce {
     public static List<String> sauces = List.of(
-            "mayo",
-            "mustard",
-            "ketchup",
-            "ranch",
-            "thousand island",
-            "vinaigrette");
+            "mayo","mustard","ketchup",
+            "ranch","thousand island","vinaigrette");
 
     private String name;
 

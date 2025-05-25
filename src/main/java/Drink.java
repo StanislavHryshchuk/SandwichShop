@@ -9,11 +9,8 @@ public class Drink {
     private double price;
     private String size;
     public static List<String> drinks = List.of(
-            "Cola",
-            "Pepsi",
-            "Dr.Pepper",
-            "Fanta",
-            "Juice");
+            "Cola","Pepsi","Dr.Pepper",
+            "Fanta","Juice");
 
     public Drink(){};
 
@@ -67,7 +64,6 @@ public class Drink {
 
     @Override
     public String toString() {
-        return String.format("Drink: %s (%s)" +
-                "\n\tP: %.2f", name,size,price);
+        return String.format("%s (%s)" + " - $%.2f", name,size,price);
     }
 }

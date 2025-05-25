@@ -4,10 +4,8 @@ public class Chips {
     private String name;
     private double price;
     public static List<String> chips = List.of(
-            "Pringles",
-            "Lays",
-            "Cheetos",
-            "Doritos");
+            "Pringles","Lays",
+            "Cheetos","Doritos");
 
 
     public Chips(){};
@@ -34,7 +32,7 @@ public class Chips {
 
     @Override
     public String toString() {
-        return String.format("Chips: %s\n\tP: %.2f", name,price)  ;
+        return String.format("%s - $%.2f", name,price)  ;
     }
 
 }

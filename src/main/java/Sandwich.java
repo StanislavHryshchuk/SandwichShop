@@ -93,7 +93,7 @@ public class Sandwich {
         while (selectionProcess) {
 
             System.out.println("""
-                    What topping you would like to add first:
+                    What topping you would like to add:
                     1. Meat Toppings.
                     2. Cheese Toppings.
                     3. Regular Toppings.
@@ -161,6 +161,8 @@ public class Sandwich {
                 this.toppings.add(cheeseTopping);
 
                 System.out.printf("Added: %s %s $%.2f\n", isExtra ? "extra" : "", userCheeseTopping, cheeseTopping.getPrice());
+            }else {
+                System.out.println("Sorry, we don't have this topping. Try again.");
             }
         }
     }
@@ -180,6 +182,8 @@ public class Sandwich {
                 this.toppings.add(regularTopping);
 
                 System.out.printf("Added: %s\n", userRegularTopping);
+            }else {
+                System.out.println("Sorry, we don't have this topping. Try again.");
             }
         }
     }
@@ -224,24 +228,30 @@ public class Sandwich {
         }
     }
 
+
+
     @Override
     public String toString() {
+
         StringBuilder toppingList = new StringBuilder("Toppings:\n");
-        for (Topping t : toppings) {
-            if (t instanceof RegularTopping) {
-                toppingList.append("  ").append(t.getName()).append("\n");
+
+        for (Topping topping : toppings) {
+            if (topping instanceof RegularTopping) {
+                toppingList.append(topping.getName()).append("\n");
             } else {
-                toppingList.append("  ")
-                        .append(t.isExtra() ? "extra " : "")
-                        .append(t.getName())
-                        .append(" - $")
-                        .append(String.format("%.2f", t.getPrice()))
-                        .append("\n");
+                toppingList
+                    .append(topping.isExtra() ? "extra " : "")
+                    .append(topping.getName())
+                    .append(" - $")
+                    .append(String.format("%.2f", topping.getPrice()))
+                    .append("\n");
             }
         }
         return """
         --- Sandwich Summary ---
-        Bread: %s (%s) %s
+        Bread:
+        %s (%s) %s
+            Price: $%.2f
         %s
         Sauces: %s
         Sides: %s
@@ -249,9 +259,10 @@ public class Sandwich {
                 breadName,
                 breadSize.getLabel(),
                 toasted ? "Toasted" : "Not Toasted",
+                breadSize.getPrice(),
                 toppingList.toString(),
-                sauces,
-                sides
+                sauces.toString().replaceAll("[\\[\\]]", ""),
+                sides.toString().replaceAll("[\\[\\]]", "")
         );
     }
 

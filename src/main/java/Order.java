@@ -77,25 +77,33 @@ public class Order {
             }
         }
     }
+
+
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
         sb.append("\n=== Order Summary ===\n");
-        sb.append("Order Name: ").append(name).append("\n");
+        sb.append("Order for: ").append(name);
 
         if (sandwiches != null && !sandwiches.isEmpty()) {
             sb.append("\nSandwiches:\n");
             int count = 1;
             for (Sandwich s : sandwiches) {
-                sb.append(" ").append(count++).append(".\n");
+                sb.append(count++).append(".\n");
                 sb.append(s).append("\n");
             }
         }
 
         if (drinks != null && !drinks.isEmpty()) {
-            sb.append("\nDrinks:\n");
+            sb.append("Drinks:\n");
             for (Drink d : drinks) {
-                sb.append("  • ").append(d).append("\n");
+                sb.append(d).append("\n");
+            }
+        }
+        if (drinks != null && !drinks.isEmpty()){
+            sb.append(("Chips:\n"));
+            for (Chips c : chips){
+                sb.append(c).append("\n");
             }
         }
         sb.append("\nThank you for your order!\n");
