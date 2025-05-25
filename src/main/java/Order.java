@@ -12,6 +12,8 @@ public class Order {
     private List<Chips> chips;
     private double orderPrice;
 
+    public Order(){};
+
     public Order(String name, List<Sandwich> sandwiches, List<Drink> drinks, List<Chips> chips) {
         this.name = name;
         this.sandwiches = sandwiches;
@@ -20,7 +22,7 @@ public class Order {
         this.orderPrice = getPrice();
     }
 
-    public static Order createOrder() {
+    public Order createOrder() {
         List<Sandwich> sandwichList = new ArrayList<>();
         List<Drink> drinkList = new ArrayList<>();
         List<Chips> chipsList = new ArrayList<>();

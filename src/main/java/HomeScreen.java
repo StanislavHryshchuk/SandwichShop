@@ -17,7 +17,8 @@ public class HomeScreen {
 
                 switch (userChoice) {
                     case 1:
-                        System.out.println(Order.createOrder());
+                        Order order = new Order().createOrder();
+                        FileManager.writeToFile(order);
                         break;
                     case 2:
                         System.out.println("Thank you! Bye.");
