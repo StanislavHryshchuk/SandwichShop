@@ -1,9 +1,6 @@
-
 import java.util.List;
-import java.util.Scanner;
 
 public class Drink {
-    private static Scanner scanner = new Scanner(System.in);
 
     private String name;
     private double price;
@@ -46,23 +43,6 @@ public class Drink {
 
     public void setSize(String size) {
         this.size = size;
-    }
-
-    public Drink createDrink(){
-        while (true) {
-            System.out.println("Available drinks: ");
-            drinksList.forEach(System.out::println);
-
-            String userDrinkName = scanner.nextLine().trim();
-            System.out.println("Please select the size. (S, M, L)");
-
-            String userDrinkSize = scanner.nextLine().trim().toUpperCase();
-            if (drinksList.contains(userDrinkName)){
-                return new Drink(userDrinkName,userDrinkSize);
-            }else {
-                System.out.println("Sorry we don't have this Drink in our menu. Please select from list");
-            }
-        }
     }
 
     @Override

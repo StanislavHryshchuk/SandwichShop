@@ -11,7 +11,6 @@ public abstract class Topping {
     }
 
     public double getPrice() {
-
         return price;
     }
 

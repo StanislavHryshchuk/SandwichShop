@@ -1,10 +1,7 @@
 import java.time.LocalDateTime;
-import java.util.ArrayList;
 import java.util.List;
-import java.util.Scanner;
 
 public class Order {
-    public static Scanner scanner = new Scanner(System.in);
 
     private String name = LocalDateTime.now().toString();
     private List<Sandwich> sandwiches;
@@ -20,83 +17,6 @@ public class Order {
         this.drinks = drinks;
         this.chips = chips;
         this.orderPrice = getPrice();
-    }
-
-    public Order createOrder() {
-        List<Sandwich> sandwichList = new ArrayList<>();
-        List<Drink> drinkList = new ArrayList<>();
-        List<Chips> chipsList = new ArrayList<>();
-
-        boolean running = true;
-        while (running) {
-            System.out.println("""
-                    What would you like to add to your Order:
-                    1. Sandwich.
-                    2. Drink.
-                    3. Chips.
-                    4. Checkout
-                    0. Cancel Order""");
-
-            try {
-                int userChoice = Integer.parseInt(scanner.nextLine().trim());
-
-                switch (userChoice) {
-                    case 1 -> {
-                        System.out.println("How many Sandwiches would you like to order?");
-                        int count = Integer.parseInt(scanner.nextLine().trim());
-
-                        for (int i = 1; i <= count; i++) {
-                            System.out.println("Sandwich #" + i);
-                            Sandwich sandwich = new Sandwich().createSandwich();
-                            sandwichList.add(sandwich);
-                        }
-                    }
-                    case 2 -> {
-                        System.out.println("How many Drinks would you like to order?");
-                        int count = Integer.parseInt(scanner.nextLine().trim());
-
-                        for (int i = 1; i <= count; i++) {
-                            System.out.println("Drink #" + i);
-                            Drink drink = new Drink().createDrink();
-                            drinkList.add(drink);
-                        }
-                    }
-                    case 3 -> {
-                        System.out.println("How many Chips would you like to order?");
-                        int count = Integer.parseInt(scanner.nextLine().trim());
-
-                        for (int i = 1; i <= count; i++) {
-                            System.out.println("Chips #" + i);
-                            Chips chips = new Chips().createChips();
-                            chipsList.add(chips);
-                        }
-                    }
-                    case 4 -> {
-                        System.out.println("Can I have a name for the order?");
-                        String clientName = scanner.nextLine().trim().replaceAll("\\s{2,}", " ");
-
-                        Order order = new Order(clientName, sandwichList, drinkList, chipsList);
-                        System.out.println(order);
-
-                        System.out.println("Please verify your Order. (yes/no)");
-                        boolean userVerification = scanner.nextLine().trim().equalsIgnoreCase("yes");
-                        if (userVerification){
-                            return order;
-                        } else {
-                            running = false;
-                        }
-                    }
-                    case 0 -> {
-                        running = false;
-
-                    }
-                    default -> System.out.println("Invalid option. Please try again.");
-                }
-            } catch (NumberFormatException e) {
-                System.out.println("Invalid input. Please enter a number.");
-            }
-        }
-        return null;
     }
 
     public double getPrice(){
@@ -146,8 +66,6 @@ public class Order {
         }
         sb.append("===================\n");
         sb.append(String.format("Total Order cost: $%.2f", getPrice()));
-
-        sb.append("\nThank you for your order!");
         return sb.toString();
     }
 }

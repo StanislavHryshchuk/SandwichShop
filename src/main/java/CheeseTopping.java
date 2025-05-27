@@ -10,8 +10,8 @@ public class CheeseTopping extends Topping {
 
     public CheeseTopping(String name, BreadSize size, boolean extra) {
         super(name,getPrice(size,extra), extra);
-
     }
+
     private static double getPrice(BreadSize size, boolean extra) {
         return switch (size) {
             case FOUR_INCH -> extra ? 1.05 : 0.75 ;

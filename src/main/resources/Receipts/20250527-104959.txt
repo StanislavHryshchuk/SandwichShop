@@ -1,0 +1,22 @@
+=== Order Summary ===
+Order for: Stan	
+Sandwich:
+Bread:
+	Rye (12') Toasted - $8.50
+Toppings:
+	extra ham - $3.50
+	extra salami - $3.50
+	extra swiss - $3.15
+	onions
+	mushrooms
+
+Sauces: mayo
+Sides: sauce
+
+Drinks:
+	Cola (L) - $3.00
+Chips:
+	Cheetos - $1.50
+===================
+Total Order cost: $23.15
+Thank you for your order!

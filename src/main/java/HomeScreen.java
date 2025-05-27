@@ -17,7 +17,7 @@ public class HomeScreen {
 
                 switch (userChoice) {
                     case 1:
-                        Order order = new Order().createOrder();
+                        Order order = OrderBuilder.createOrder();
                         FileManager.writeToFile(order);
                         break;
                     case 2:
