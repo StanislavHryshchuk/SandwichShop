@@ -1,0 +1,22 @@
+=== Order Summary ===
+Order for: Stan	
+Sandwich:
+Bread:
+Wheat (8') Toasted - $7.00
+Toppings:
+extra ham - $	3.00
+steak - $	2.00
+extra swiss - $	2.10
+	onions
+	mushrooms
+
+Sauces: mayo, ranch
+Sides: sauce
+
+Drinks:
+	Cola (L) - $3.00
+Chips:
+	Cheetos - $1.50
+===================
+Total Order cost: $18.60
+Thank you for your order!

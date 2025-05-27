@@ -8,7 +8,7 @@ public class Drink {
     private String name;
     private double price;
     private String size;
-    public static List<String> drinks = List.of(
+    public static List<String> drinksList = List.of(
             "Cola",
             "Pepsi",
             "Dr.Pepper",
@@ -51,13 +51,13 @@ public class Drink {
     public Drink createDrink(){
         while (true) {
             System.out.println("Available drinks: ");
-            drinks.forEach(System.out::println);
+            drinksList.forEach(System.out::println);
 
             String userDrinkName = scanner.nextLine().trim();
             System.out.println("Please select the size. (S, M, L)");
 
             String userDrinkSize = scanner.nextLine().trim().toUpperCase();
-            if (drinks.contains(userDrinkName)){
+            if (drinksList.contains(userDrinkName)){
                 return new Drink(userDrinkName,userDrinkSize);
             }else {
                 System.out.println("Sorry we don't have this Drink in our menu. Please select from list");

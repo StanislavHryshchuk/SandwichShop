@@ -3,7 +3,7 @@ import java.util.List;
 public class Chips {
     private String name;
     private double price;
-    public static List<String> chips = List.of(
+    public static List<String> chipsList = List.of(
             "Pringles",
             "Lays",
             "Cheetos",
@@ -21,26 +21,18 @@ public class Chips {
         return price;
     }
 
-    public void setPrice(double price) {
-        this.price = price;
-    }
-
     public String getName() {
         return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
     }
 
     public Chips createChips(){
         while (true) {
             System.out.println("Available chips: ");
-            chips.forEach(System.out::println);
+            chipsList.forEach(System.out::println);
 
             String userChipsName = Order.scanner.nextLine().trim();
 
-            if (chips.contains(userChipsName)){
+            if (chipsList.contains(userChipsName)){
                 return new Chips(userChipsName);
             }else {
                 System.out.println("Sorry we don't have this Chips in our menu. Please select from list");

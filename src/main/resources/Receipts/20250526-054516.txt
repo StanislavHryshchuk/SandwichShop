@@ -1,0 +1,19 @@
+=== Order Summary ===
+Order for: Stan	
+Sandwich:
+Bread:
+	Rye (8') Toasted - $7.00
+Toppings:
+	extra ham - $	3.00
+	bacon - $	2.00
+	extra swiss - $	2.10
+	american - $	1.50
+	onions
+	mushrooms
+
+Sauces: 
+Sides: 
+
+===================
+Total Order cost: $15.60
+Thank you for your order!

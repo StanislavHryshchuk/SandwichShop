@@ -26,6 +26,7 @@ public class Order {
         List<Sandwich> sandwichList = new ArrayList<>();
         List<Drink> drinkList = new ArrayList<>();
         List<Chips> chipsList = new ArrayList<>();
+
         boolean running = true;
         while (running) {
             System.out.println("""
@@ -45,7 +46,7 @@ public class Order {
                         int count = Integer.parseInt(scanner.nextLine().trim());
 
                         for (int i = 1; i <= count; i++) {
-                            System.out.println("Creating Sandwich #" + i);
+                            System.out.println("Sandwich #" + i);
                             Sandwich sandwich = new Sandwich().createSandwich();
                             sandwichList.add(sandwich);
                         }
@@ -75,8 +76,9 @@ public class Order {
                         String clientName = scanner.nextLine().trim().replaceAll("\\s{2,}", " ");
 
                         Order order = new Order(clientName, sandwichList, drinkList, chipsList);
+                        System.out.println(order);
 
-                        System.out.println("Please verify your Order");
+                        System.out.println("Please verify your Order. (yes/no)");
                         boolean userVerification = scanner.nextLine().trim().equalsIgnoreCase("yes");
                         if (userVerification){
                             return order;
@@ -143,9 +145,9 @@ public class Order {
             }
         }
         sb.append("===================\n");
-        sb.append(String.format("Total order cost: $%.2f", getPrice()));
+        sb.append(String.format("Total Order cost: $%.2f", getPrice()));
 
-        sb.append("\nThank you for your order!\n");
+        sb.append("\nThank you for your order!");
         return sb.toString();
     }
 }

@@ -59,15 +59,15 @@ public class Sandwich {
     public Sandwich createSandwich () {
 
         Bread bread = breadPrompt();
-        toppingPrompt(bread.getSize());
-        saucesPrompt();
-        sidesPrompt();
+        List<Topping> toppings =  toppingPrompt(bread.getSize());
+        List<Sauce> sauces =  saucesPrompt();
+        List<Sides> sides =  sidesPrompt();
 
         System.out.println("Would you like it toasted?");
 
         boolean toasted = scanner.nextLine().trim().equalsIgnoreCase("yes");
 
-        return new Sandwich(bread.getName(),bread.getSize(),this.toppings,this.sauces,this.sides,toasted);
+        return new Sandwich(bread.getName(),bread.getSize(),toppings,sauces,sides,toasted);
     }
 
     public Bread breadPrompt() {
@@ -85,10 +85,10 @@ public class Sandwich {
         return new Bread(userBreadName,size);
     }
 
-    public void toppingPrompt(BreadSize size) {
+    public List<Topping> toppingPrompt(BreadSize size) {
 
         //Topping Prompts
-        this.toppings = new ArrayList<>();
+        List<Topping> toppingList = new ArrayList<>();
 
         boolean selectionProcess = true;
 
@@ -103,9 +103,9 @@ public class Sandwich {
             try {
                 int userToppingSelect = Integer.parseInt(scanner.nextLine().trim());
                 switch (userToppingSelect) {
-                    case 1 -> meatTopping(size);
-                    case 2 -> cheeseTopping(size);
-                    case 3 -> regularTopping();
+                    case 1 -> toppingList.addAll(meatTopping(size));
+                    case 2 -> toppingList.addAll(cheeseTopping(size));
+                    case 3 -> toppingList.addAll(regularTopping());
                     case 4 -> {
                         System.out.println("Done selecting Toppings");
                         selectionProcess = false;
@@ -116,9 +116,11 @@ public class Sandwich {
                 System.out.println("Invalid input. Please enter a number.");
             }
         }
+        return toppingList;
     }
 
-    public void meatTopping(BreadSize size) {
+    public List<MeatTopping> meatTopping(BreadSize size) {
+        List<MeatTopping> meatList = new ArrayList<>();
         while (true) {
 
             System.out.println("Please select a meat topping (type 'DONE' to go back):");
@@ -133,19 +135,21 @@ public class Sandwich {
                 System.out.println("Would you like to make it Extra? (yes/no)");
                 boolean isExtra = scanner.nextLine().trim().replaceAll("\\s+", "").equalsIgnoreCase("yes");
 
-                Topping meatTopping = new MeatTopping(userMeatTopping, size, isExtra);
-                this.toppings.add(meatTopping);
+                MeatTopping meatTopping = new MeatTopping(userMeatTopping, size, isExtra);
+                meatList.add(meatTopping);
 
                 System.out.printf("Added: %s$%.2f\n",
                         (isExtra ? "extra " + userMeatTopping + " " : userMeatTopping + " "),
                         meatTopping.getPrice());
             } else {
-                System.out.println("Sorry, we don't have this topping. Try again.");
+                System.out.println("Sorry, we don't have this topping.");
             }
         }
+        return meatList;
     }
 
-    public void cheeseTopping (BreadSize size){
+    public List<CheeseTopping> cheeseTopping (BreadSize size){
+        List<CheeseTopping> cheeseList = new ArrayList<>();
         while (true) {
             System.out.println("Please select a Cheese topping (type 'DONE' to go back):");
             CheeseTopping.namesOfCheese.forEach(System.out::println);
@@ -158,18 +162,19 @@ public class Sandwich {
                 System.out.println("Would you like to make it Extra? (yes/no)");
                 boolean isExtra = scanner.nextLine().trim().replaceAll("\\s+", "").equalsIgnoreCase("yes");
 
-                Topping cheeseTopping = new CheeseTopping(userCheeseTopping, size, isExtra);
-                this.toppings.add(cheeseTopping);
+                CheeseTopping cheeseTopping = new CheeseTopping(userCheeseTopping, size, isExtra);
+                cheeseList.add(cheeseTopping);
 
                 System.out.printf("Added: %s %s $%.2f\n", isExtra ? "extra" : "", userCheeseTopping, cheeseTopping.getPrice());
             }else {
                 System.out.println("Sorry, we don't have this topping. Try again.");
             }
         }
+        return cheeseList;
     }
 
-    public void regularTopping(){
-
+    public List<RegularTopping> regularTopping(){
+        List<RegularTopping> regularToppingList = new ArrayList<>();
         while (true) {
             System.out.println("Please select a Regular topping (type 'DONE' to go back):");
             RegularTopping.regularToppings.forEach(System.out::println);
@@ -179,20 +184,19 @@ public class Sandwich {
             if(userRegularTopping.equalsIgnoreCase("done")) break;
 
             if(RegularTopping.regularToppings.contains(userRegularTopping)){
-                Topping regularTopping = new RegularTopping(userRegularTopping);
-                this.toppings.add(regularTopping);
+               RegularTopping regularTopping = new RegularTopping(userRegularTopping);
+               regularToppingList.add(regularTopping);
 
                 System.out.printf("Added: %s\n", userRegularTopping);
             }else {
                 System.out.println("Sorry, we don't have this topping. Try again.");
             }
         }
+        return regularToppingList;
     }
 
-    public void saucesPrompt(){
-
-        this.sauces = new ArrayList<>();
-
+    public List<Sauce> saucesPrompt(){
+        List<Sauce> sauceList = new ArrayList<>();
         while (true) {
             System.out.println("Please select a Sauce (type 'DONE' to go back):");
             Sauce.sauces.forEach(System.out::println);
@@ -203,16 +207,17 @@ public class Sandwich {
 
             if(Sauce.sauces.contains(userSauce)){
                 Sauce sauce = new Sauce(userSauce);
-                this.sauces.add(sauce);
+               sauceList.add(sauce);
                 System.out.printf("Added: %s\n", userSauce);
+            } else {
+                System.out.println("Sorry we don't have this sauce.");
             }
         }
+        return sauceList;
     }
 
-    public void sidesPrompt(){
-
-        this.sides = new ArrayList<>();
-
+    public List<Sides> sidesPrompt(){
+        List<Sides> sidesList = new ArrayList<>();
         while (true) {
             System.out.println("Please select a Sides (type 'DONE' to go back):");
             Sides.sides.forEach(System.out::println);
@@ -223,10 +228,13 @@ public class Sandwich {
 
             if(Sides.sides.contains(userSide)){
                 Sides side = new Sides(userSide);
-                this.sides.add(side);
+                sidesList.add(side);
                 System.out.printf("Added: %s\n", userSide);
+            } else {
+                System.out.println("Sorry we don't have this side");
             }
         }
+        return sidesList;
     }
 
     public double getPrice(){
@@ -251,16 +259,15 @@ public class Sandwich {
                 toppingList.append("\t").append(topping.getName()).append("\n");
             } else {
                 toppingList
-                    .append(topping.isExtra() ? "extra " : "")
+                    .append("\t").append(topping.isExtra() ? "extra " : "")
                     .append(topping.getName())
-                    .append(" - $")
-                    .append(String.format("\t%.2f", topping.getPrice()))
+                    .append(String.format(" - $%.2f", topping.getPrice()))
                     .append("\n");
             }
         }
         return """        
         Bread:
-        %s (%s) %s - $%.2f
+        \t%s (%s) %s - $%.2f
         %s
         Sauces: %s
         Sides: %s
