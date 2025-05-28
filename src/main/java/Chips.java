@@ -10,8 +10,6 @@ public class Chips {
             "Doritos");
 
 
-    public Chips(){};
-
     public Chips(String name) {
         this.name = name;
         this.price = 1.50;

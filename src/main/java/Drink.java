@@ -12,8 +12,6 @@ public class Drink {
             "Fanta",
             "Juice");
 
-    public Drink(){};
-
     public Drink(String name, String size) {
         this.name = name;
         this.size = size;

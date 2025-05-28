@@ -9,14 +9,48 @@ public class Order {
     private List<Chips> chips;
     private double orderPrice;
 
-    public Order(){};
-
     public Order(String name, List<Sandwich> sandwiches, List<Drink> drinks, List<Chips> chips) {
         this.name = name;
         this.sandwiches = sandwiches;
         this.drinks = drinks;
         this.chips = chips;
         this.orderPrice = getPrice();
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public List<Sandwich> getSandwiches() {
+        return sandwiches;
+    }
+
+    public void setSandwiches(List<Sandwich> sandwiches) {
+        this.sandwiches = sandwiches;
+    }
+
+    public List<Drink> getDrinks() {
+        return drinks;
+    }
+
+    public void setDrinks(List<Drink> drinks) {
+        this.drinks = drinks;
+    }
+
+    public List<Chips> getChips() {
+        return chips;
+    }
+
+    public void setChips(List<Chips> chips) {
+        this.chips = chips;
+    }
+
+    public double getOrderPrice() {
+        return orderPrice;
     }
 
     public double getPrice(){

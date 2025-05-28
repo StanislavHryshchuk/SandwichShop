@@ -43,7 +43,6 @@ public class SignatureSandwichCustomize {
                         System.out.println("Confirm all customizations? (yes/no)");
                         boolean confirm = scanner.nextLine().trim().equalsIgnoreCase("yes");
                         if (confirm){
-                            customizeMenuRunning = false;
                             return sandwich;
                         } else {
                             System.out.println("Returning to customization menu...");
@@ -58,10 +57,10 @@ public class SignatureSandwichCustomize {
         return sandwich;
     }
 
-    public static List<Topping> removeTopping (List<Topping> toppings){
+    public static void removeTopping (List<Topping> toppings){
 
         while (true){
-            System.out.println("Which topping u would like to remove? Type 'DONE' to go back");
+            System.out.println("Which topping you would like to remove? Type 'DONE' to go back");
             toppings.forEach(System.out::println);
 
             String userRemoveTopping = scanner.nextLine().trim().toLowerCase();
@@ -76,6 +75,5 @@ public class SignatureSandwichCustomize {
                 System.out.println("No matching topping found");
             }
         }
-        return toppings;
     }
 }

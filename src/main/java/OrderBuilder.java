@@ -76,8 +76,6 @@ public class OrderBuilder {
                         boolean userVerification = scanner.nextLine().trim().equalsIgnoreCase("yes");
                         if (userVerification){
                             return order;
-                        } else {
-                            running = false;
                         }
                     }
                     case 0 -> {
