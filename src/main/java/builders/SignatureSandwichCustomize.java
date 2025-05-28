@@ -50,7 +50,7 @@ public class SignatureSandwichCustomize {
     }
 
     // Allow user to remove toppings from sandwich
-    public static void removeTopping (List<Topping> toppings){
+    public static void removeTopping(List<Topping> toppings){
 
         while (true){
             System.out.println("Which topping you would like to remove? (Type 'DONE' to go back)");

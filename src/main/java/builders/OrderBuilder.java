@@ -52,7 +52,7 @@ public class OrderBuilder {
         }
         return finalOrder;
     }
-
+    // Create a list of drinks
     public static List<Drink> createDrinkList() {
 
         List<Drink> drinkList = new ArrayList<>();
@@ -80,7 +80,7 @@ public class OrderBuilder {
         }
         return drinkList;
     }
-
+    // Create a list of Chips
     public static List<Chips> createChipsList() {
 
         List<Chips> chipsList = new ArrayList<>();

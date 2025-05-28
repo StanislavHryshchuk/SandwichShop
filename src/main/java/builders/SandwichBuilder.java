@@ -90,7 +90,7 @@ public class SandwichBuilder {
     }
 
     // Prompt for cheese toppings with extra option
-    public static List<CheeseTopping> cheeseTopping (BreadSize size){
+    public static List<CheeseTopping> cheeseTopping(BreadSize size){
 
         List<CheeseTopping> cheeseList = new ArrayList<>();
 
