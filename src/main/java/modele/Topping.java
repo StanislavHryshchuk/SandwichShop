@@ -1,3 +1,5 @@
+package modele;
+
 public abstract class Topping {
 
     private double price;

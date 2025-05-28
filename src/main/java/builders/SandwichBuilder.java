@@ -1,3 +1,6 @@
+package builders;
+import enums.BreadSize;
+import modele.*;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
@@ -5,6 +8,7 @@ import java.util.Scanner;
 public class SandwichBuilder {
     private static Scanner scanner = new Scanner(System.in);
 
+    // Prompt user for bread type and size
     public static Bread breadPrompt() {
         // Bread Prompts
         System.out.println("What Bread size you would like? (4', 8', 12')");
@@ -20,7 +24,8 @@ public class SandwichBuilder {
         return new Bread(userBreadName,size);
     }
 
-    public static List<Topping> toppingPrompt(BreadSize size) {
+    // Prompt user to choose multiple toppings (meat, cheese, regular)
+    public static List<Topping> toppingPromptMenu(BreadSize size) {
 
         //Topping Prompts
         List<Topping> toppingList = new ArrayList<>();
@@ -54,6 +59,7 @@ public class SandwichBuilder {
         return toppingList;
     }
 
+    // Prompt for meat toppings with option for extra
     public static List<MeatTopping> meatTopping(BreadSize size) {
         List<MeatTopping> meatList = new ArrayList<>();
         while (true) {
@@ -83,6 +89,7 @@ public class SandwichBuilder {
         return meatList;
     }
 
+    // Prompt for cheese toppings with extra option
     public static List<CheeseTopping> cheeseTopping (BreadSize size){
         List<CheeseTopping> cheeseList = new ArrayList<>();
         while (true) {
@@ -108,6 +115,7 @@ public class SandwichBuilder {
         return cheeseList;
     }
 
+    // Prompt for regular toppings
     public static List<RegularTopping> regularTopping(){
         List<RegularTopping> regularToppingList = new ArrayList<>();
         while (true) {
@@ -130,6 +138,7 @@ public class SandwichBuilder {
         return regularToppingList;
     }
 
+    // Prompt for sauces
     public static List<Sauce> saucesPrompt(){
         List<Sauce> sauceList = new ArrayList<>();
         while (true) {
@@ -151,6 +160,7 @@ public class SandwichBuilder {
         return sauceList;
     }
 
+    // Prompt for side items
     public static List<Sides> sidesPrompt(){
         List<Sides> sidesList = new ArrayList<>();
         while (true) {
@@ -170,5 +180,31 @@ public class SandwichBuilder {
             }
         }
         return sidesList;
+    }
+
+    // Build multiple sandwiches through repeated prompts
+    public static List<Sandwich> createSandwiches(){
+
+        List<Sandwich> sandwiches = new ArrayList<>();
+
+        System.out.println("How many Sandwiches would you like to order?");
+        int count = Integer.parseInt(scanner.nextLine().trim());
+
+        for (int i = 1; i <= count; i++) {
+            System.out.println("modele.Sandwich #" + i);
+
+            Bread bread = breadPrompt();
+            List<Topping> toppings =  toppingPromptMenu(bread.getSize());
+            List<Sauce> sauces = saucesPrompt();
+            List<Sides> sides =  sidesPrompt();
+
+            System.out.println("Would you like it toasted?");
+
+            boolean toasted = scanner.nextLine().trim().equalsIgnoreCase("yes");
+
+            Sandwich sandwich = new Sandwich(bread.getName(),bread.getSize(),toppings,sauces,sides,toasted);
+            sandwiches.add(sandwich);
+        }
+        return sandwiches;
     }
 }

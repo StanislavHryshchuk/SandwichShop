@@ -1,3 +1,7 @@
+package modele;
+
+import enums.BreadSize;
+
 import java.util.List;
 
 public class Bread {
@@ -10,7 +14,7 @@ public class Bread {
             "Rye",
             "Wrap");
 
-    public Bread(String name,BreadSize size) {
+    public Bread(String name, BreadSize size) {
         this.name = name;
         this.size = size;
     }
@@ -29,6 +33,6 @@ public class Bread {
 
     @Override
     public String toString() {
-        return String.format("Bread: %s %s \nPrice: $%.2f", name, size.getLabel(), size.getPrice());
+        return String.format("modele.Bread: %s %s \nPrice: $%.2f", name, size.getLabel(), size.getPrice());
     }
 }

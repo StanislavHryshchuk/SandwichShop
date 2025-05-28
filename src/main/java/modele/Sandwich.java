@@ -1,3 +1,5 @@
+package modele;
+import enums.BreadSize;
 import java.util.List;
 import java.util.Scanner;
 
@@ -68,20 +70,6 @@ public class Sandwich {
 
     public void setSides(List<Sides> sides) {
         this.sides = sides;
-    }
-
-    public static Sandwich createSandwich () {
-
-        Bread bread = SandwichBuilder.breadPrompt();
-        List<Topping> toppings =  SandwichBuilder.toppingPrompt(bread.getSize());
-        List<Sauce> sauces =  SandwichBuilder.saucesPrompt();
-        List<Sides> sides =  SandwichBuilder.sidesPrompt();
-
-        System.out.println("Would you like it toasted?");
-
-        boolean toasted = scanner.nextLine().trim().equalsIgnoreCase("yes");
-
-        return new Sandwich(bread.getName(),bread.getSize(),toppings,sauces,sides,toasted);
     }
 
     public double getPrice(){

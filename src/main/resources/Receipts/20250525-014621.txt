@@ -1,7 +1,7 @@
-=== Order Summary ===
-Order for: Stan	
-Sandwich:
-Bread:
+=== modele.Order Summary ===
+modele.Order for: Stan
+modele.Sandwich:
+modele.Bread:
 Wheat (8') Toasted - $7.00
 Toppings:
 extra ham - $	3.00
@@ -11,12 +11,12 @@ extra swiss - $	2.10
 	mushrooms
 
 Sauces: mayo, ranch
-Sides: sauce
+modele.Sides: sauce
 
 Drinks:
 	Cola (L) - $3.00
-Chips:
+modele.Chips:
 	Cheetos - $1.50
 ===================
-Total Order cost: $18.60
+Total modele.Order cost: $18.60
 Thank you for your order!

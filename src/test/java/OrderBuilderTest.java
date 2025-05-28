@@ -1,5 +1,8 @@
 import java.util.ArrayList;
 import java.util.List;
+
+import enums.BreadSize;
+import modele.*;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -42,6 +45,11 @@ public class OrderBuilderTest {
         assertNotNull(order);
         assertEquals("Stan", order.getName());
         assertTrue(order.getSandwiches().getFirst().isToasted());
+
+        int sizeOfToppingsList = toppings.size();
+
+        assertEquals(sizeOfToppingsList,toppings.size());
+
     }
 
     @Test

@@ -1,11 +1,15 @@
+package filemanager;
+
+import modele.Order;
+
 import java.io.FileWriter;
 import java.io.IOException;
-import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
-public class FileManager {
+public class ReceiptFileManager {
 
+    //Create a file and write the Final Order Summary to it
     public static void writeToFile(Order order){
 
         DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyyMMdd-hhmmss");

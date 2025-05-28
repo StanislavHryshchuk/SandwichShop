@@ -1,3 +1,5 @@
+package enums;
+
 public enum BreadSize {
     FOUR_INCH(5.50, "4'"),
     EIGHT_INCH(7.00, "8'"),

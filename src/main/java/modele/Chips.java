@@ -1,3 +1,5 @@
+package modele;
+
 import java.util.List;
 
 public class Chips {
@@ -8,7 +10,6 @@ public class Chips {
             "Lays",
             "Cheetos",
             "Doritos");
-
 
     public Chips(String name) {
         this.name = name;

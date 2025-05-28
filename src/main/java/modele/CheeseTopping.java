@@ -1,3 +1,7 @@
+package modele;
+
+import enums.BreadSize;
+
 import java.util.List;
 
 public class CheeseTopping extends Topping {
@@ -14,9 +18,9 @@ public class CheeseTopping extends Topping {
 
     private static double getPrice(BreadSize size, boolean extra) {
         return switch (size) {
-            case FOUR_INCH -> extra ? 1.05 : 0.75 ;
-            case EIGHT_INCH -> extra ? 2.10 : 1.50;
-            case TWELVE_INCH -> extra ? 3.15 : 2.25;
+            case BreadSize.FOUR_INCH -> extra ? 1.05 : 0.75 ;
+            case BreadSize.EIGHT_INCH -> extra ? 2.10 : 1.50;
+            case BreadSize.TWELVE_INCH -> extra ? 3.15 : 2.25;
         };
     }
 }

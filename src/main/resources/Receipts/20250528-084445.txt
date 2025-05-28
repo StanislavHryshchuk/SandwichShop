@@ -1,0 +1,39 @@
+=== modele.Order Summary ===
+modele.Order for: Stan
+modele.Sandwich:
+modele.Bread:
+	Rye (8') Toasted - $7.00
+Toppings:
+	steak - $2.00
+	american - $1.50
+	extra bacon - $3.00
+	onions
+	mushrooms
+	extra swiss - $2.10
+
+Sauces: mayo
+modele.Sides:
+---------------------
+modele.Sandwich Total: $15.60
+
+modele.Bread:
+	Wrap (4') Toasted - $5.50
+Toppings:
+	extra ham - $1.50
+	bacon - $1.00
+	extra swiss - $1.05
+	mushrooms
+	onions
+
+Sauces: mayo
+modele.Sides:
+---------------------
+modele.Sandwich Total: $9.05
+
+Drinks:
+	Cola (L) - $3.00
+	Juice (M) - $2.50
+modele.Chips:
+	Cheetos - $1.50
+===================
+Total modele.Order cost: $31.65

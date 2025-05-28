@@ -1,3 +1,5 @@
+package modele;
+import enums.BreadSize;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -11,7 +13,7 @@ public class SignatureSandwich extends Sandwich{
     public SignatureSandwich(String breadName, BreadSize breadSize, List<Topping> toppings, List<Sauce> sauces, List<Sides> sides, boolean toasted) {
         super(breadName, breadSize, toppings, sauces, sides, toasted);
     }
-
+    // Factory method to build a BLT Signature Sandwich
     public static Sandwich bltSandwich(){
         BreadSize size = BreadSize.EIGHT_INCH;
         Bread bread = new Bread(Bread.breadNames.get(1), size);
@@ -28,10 +30,10 @@ public class SignatureSandwich extends Sandwich{
 
         List<Sides> sides = new ArrayList<>();
 
-        SignatureSandwich bltSandwich = new SignatureSandwich(bread.getName(),size,toppings,sauces,sides,toasted);
-
-        return bltSandwich;
+        return  new SignatureSandwich(bread.getName(),size,toppings,sauces,sides,toasted);
     }
+
+    // Factory method to build Philly Cheese Steak Signature Sandwich
     public static Sandwich pcSteakSandwich(){
         BreadSize size = BreadSize.EIGHT_INCH;
         Bread bread = new Bread(Bread.breadNames.get(1),size);
@@ -47,8 +49,6 @@ public class SignatureSandwich extends Sandwich{
 
         List<Sides> sides = new ArrayList<>();
 
-        SignatureSandwich pcSteak = new SignatureSandwich(bread.getName(), size,toppings,sauces,sides,toasted);
-
-        return pcSteak;
+        return  new SignatureSandwich(bread.getName(), size,toppings,sauces,sides,toasted);
     }
 }

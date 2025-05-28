@@ -1,7 +1,7 @@
-=== Order Summary ===
-Order for: Stan	
-Sandwich:
-Bread:
+=== modele.Order Summary ===
+modele.Order for: Stan
+modele.Sandwich:
+modele.Bread:
 	Rye (8') Toasted - $7.00
 Toppings:
 	extra ham - $	3.00
@@ -12,8 +12,8 @@ Toppings:
 	mushrooms
 
 Sauces: 
-Sides: 
+modele.Sides:
 
 ===================
-Total Order cost: $15.60
+Total modele.Order cost: $15.60
 Thank you for your order!

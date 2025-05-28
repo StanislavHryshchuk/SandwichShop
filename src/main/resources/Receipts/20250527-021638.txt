@@ -1,7 +1,7 @@
-=== Order Summary ===
-Order for: Stan	
-Sandwich:
-Bread:
+=== modele.Order Summary ===
+modele.Order for: Stan
+modele.Sandwich:
+modele.Bread:
 	Rye (12') Toasted - $8.50
 Toppings:
 	bacon - $2.00
@@ -13,9 +13,9 @@ Toppings:
 	onions
 
 Sauces: ranch
-Sides: 
+modele.Sides:
 ---------------------
-Sandwich Total: $18.60
+modele.Sandwich Total: $18.60
 
 ===================
-Total Order cost: $18.60
+Total modele.Order cost: $18.60

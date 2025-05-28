@@ -1,4 +1,7 @@
-
+package ui;
+import builders.OrderBuilder;
+import filemanager.ReceiptFileManager;
+import modele.Order;
 import java.util.Scanner;
 
 public class HomeScreen {
@@ -6,6 +9,7 @@ public class HomeScreen {
 
     public void display() {
         boolean running = true;
+        // ui.Main Loop
         while (running){
             System.out.println("\n*** Home Screen ***");
 
@@ -18,7 +22,7 @@ public class HomeScreen {
                 switch (userChoice) {
                     case 1:
                         Order order = OrderBuilder.createOrder();
-                        FileManager.writeToFile(order);
+                        ReceiptFileManager.writeToFile(order);
                         break;
                     case 2:
                         System.out.println("Thank you! Bye.");
