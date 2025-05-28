@@ -91,7 +91,9 @@ public class SandwichBuilder {
 
     // Prompt for cheese toppings with extra option
     public static List<CheeseTopping> cheeseTopping (BreadSize size){
+
         List<CheeseTopping> cheeseList = new ArrayList<>();
+
         while (true) {
             System.out.println("Please select a Cheese topping (type 'DONE' to go back):");
             CheeseTopping.namesOfCheese.forEach(System.out::println);
@@ -191,7 +193,7 @@ public class SandwichBuilder {
         int count = Integer.parseInt(scanner.nextLine().trim());
 
         for (int i = 1; i <= count; i++) {
-            System.out.println("modele.Sandwich #" + i);
+            System.out.println("Sandwich #" + i);
 
             Bread bread = breadPrompt();
             List<Topping> toppings =  toppingPromptMenu(bread.getSize());
