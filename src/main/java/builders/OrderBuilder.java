@@ -112,13 +112,13 @@ public class OrderBuilder {
         int userSignatureSandwich = Integer.parseInt(scanner.nextLine().trim());
 
         switch (userSignatureSandwich) {
-            case 1 -> sandwichList.add(bltSandwichOrder());
-            case 2 -> sandwichList.add(pcSteakSandwich());
+            case 1 -> sandwichList.add(bltSandwichCustomizeQuestion());
+            case 2 -> sandwichList.add(pcSteakSandwichCustomizeQuestion());
             default -> System.out.println("Invalid input. Please choose a valid option.");
         }
     }
     // BLT signature sandwich customization
-    public static Sandwich bltSandwichOrder() {
+    public static Sandwich bltSandwichCustomizeQuestion() {
         Sandwich sandwich = SignatureSandwich.bltSandwich();
         System.out.println(sandwich);
         System.out.println("Would you like to customize it?");
@@ -131,7 +131,7 @@ public class OrderBuilder {
         }
     }
     // Philly Cheese Steak signature sandwich customization
-    public static Sandwich pcSteakSandwich() {
+    public static Sandwich pcSteakSandwichCustomizeQuestion() {
         Sandwich sandwich = SignatureSandwich.pcSteakSandwich();
         System.out.println(sandwich);
         System.out.println("Would you like to customize it?");

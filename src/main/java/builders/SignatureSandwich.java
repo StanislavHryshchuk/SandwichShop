@@ -1,9 +1,10 @@
-package modele;
+package builders;
 import enums.BreadSize;
+import modele.*;
 import java.util.ArrayList;
 import java.util.List;
 
-public class SignatureSandwich extends Sandwich{
+public class SignatureSandwich extends Sandwich {
 
     public static List<String> signatureSandwichList = List.of(
             "1. BLT Sandwich",
