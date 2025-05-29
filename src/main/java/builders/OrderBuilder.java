@@ -61,7 +61,7 @@ public class OrderBuilder {
         int count = Integer.parseInt(scanner.nextLine().trim());
 
         for (int i = 1; i <= count; i++) {
-            System.out.println("modele.Drink #" + i);
+            System.out.println("Drink #" + i);
 
             System.out.println("Available drinks: ");
             Drink.drinksList.forEach(System.out::println);
@@ -75,7 +75,7 @@ public class OrderBuilder {
                 Drink drink = new Drink(userDrinkName, userDrinkSize);
                 drinkList.add(drink);
             } else {
-                System.out.println("Sorry we don't have this modele.Drink in our menu. Please select from list");
+                System.out.println("Sorry we don't have this Drink in our menu. Please select from list");
             }
         }
         return drinkList;
