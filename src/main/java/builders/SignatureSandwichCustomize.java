@@ -63,7 +63,7 @@ public class SignatureSandwichCustomize {
             boolean removed = toppings.removeIf(t -> t.getName().equalsIgnoreCase(userRemoveTopping));
 
             if (removed){
-                System.out.println("modele.Topping removed.");
+                System.out.println("Topping removed.");
             } else{
                 System.out.println("No matching topping found.");
             }

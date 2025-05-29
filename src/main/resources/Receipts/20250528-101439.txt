@@ -1,7 +1,7 @@
-=== modele.Order Summary ===
-modele.Order for: Maaike
-modele.Sandwich:
-modele.Bread:
+=== Order Summary ===
+Order for: Maaike
+Sandwich:
+Bread:
 	Wrap (8') Toasted - $7.00
 Toppings:
 	swiss - $1.50
@@ -9,11 +9,11 @@ Toppings:
 	peppers
 
 Sauces: mustard
-modele.Sides:
+Sides:
 ---------------------
-modele.Sandwich Total: $8.50
+Sandwich Total: $8.50
 
 Drinks:
 	Cola (S) - $2.00
 ===================
-Total modele.Order cost: $10.50
+Total Order cost: $10.50
