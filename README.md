@@ -43,13 +43,13 @@ This application simulates a full-featured sandwich ordering system built using 
   <summary>💻 Application Interface</summary>
 
   ### Home Screen: 
-  ![alt text]()
+  ![alt text](src/main/resources/pictures/homeScreen.PNG)
 
   ### Order Screen:
-  ![alt text](pictures/orderScreen.PNG)
+  ![alt text](src/main/resources/pictures/orderScreen.PNG)
   
   ### Topping Screen:
-  ![alt text](pictures/toppingScreen.PNG)
+  ![alt text](src/main/resources/pictures/toppingScreen.PNG)
    
   </details>
 
