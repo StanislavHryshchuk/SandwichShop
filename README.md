@@ -61,6 +61,7 @@ This application simulates a full-featured sandwich ordering system built using 
 
   * 🛠️ `OrderBuilder.java`  
   * 🧰 `SandwichBuilder.java`  
+  * 👨‍🍳 `SignatureSandwich.java`
   * 🧑‍🍳 `SignatureSandwichCustomize.java`
 
   </details>
@@ -91,8 +92,7 @@ This application simulates a full-featured sandwich ordering system built using 
   * 🥬 `RegularTopping.java`  
   * 🥪 `Sandwich.java`  
   * 🧂 `Sauce.java`  
-  * 🍟 `Sides.java`  
-  * 👨‍🍳 `SignatureSandwich.java`  
+  * 🍟 `Sides.java`   
   * 🧩 `Topping.java` (abstract base class)
 
   </details>

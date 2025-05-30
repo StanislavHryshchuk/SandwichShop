@@ -1,4 +1,5 @@
 package builders;
+import filemanager.ReceiptFileManager;
 import modele.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -8,7 +9,7 @@ public class OrderBuilder {
     public static Scanner scanner = new Scanner(System.in);
 
     // Entry point to create a complete order
-    public static Order createOrder() {
+    public static void orderMenu() {
         List<Sandwich> sandwichList = new ArrayList<>();
         List<Drink> drinkList = new ArrayList<>();
         List<Chips> chipsList = new ArrayList<>();
@@ -37,7 +38,10 @@ public class OrderBuilder {
                     case 5 -> {                                                           // Checkout
                             finalOrder = checkOut(sandwichList, drinkList, chipsList);
                             if (finalOrder != null){
+                                ReceiptFileManager.writeToFile(finalOrder);
                                 running = false;
+                            }else{
+                                System.out.println("Returning to Order Menu...");
                             }
                     }
                     case 0 -> {
@@ -50,7 +54,6 @@ public class OrderBuilder {
                 System.out.println("Invalid input. Please enter a number.");
             }
         }
-        return finalOrder;
     }
     // Create a list of drinks
     public static List<Drink> createDrinkList() {

@@ -21,8 +21,7 @@ public class HomeScreen {
 
                 switch (userChoice) {
                     case 1:
-                        Order order = OrderBuilder.createOrder();
-                        ReceiptFileManager.writeToFile(order);
+                        OrderBuilder.orderMenu();
                         break;
                     case 2:
                         System.out.println("Thank you! Bye.");

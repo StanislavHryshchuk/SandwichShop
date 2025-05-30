@@ -1,4 +1,3 @@
-
 === Order Summary ===
 Order for: Stan
 Sandwich:
@@ -20,3 +19,4 @@ Chips:
 ===================
 Total order cost: $13.25
 Thank you for your order!
+
